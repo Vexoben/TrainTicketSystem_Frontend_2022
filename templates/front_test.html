@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0" />
+    <title>Document</title>
+
+    <style type="text/css">
+      body {
+        background-color: #dadada;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: -100px;
+      }
+      .column {
+        max-width: 450px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- You MUST include jQuery before Fomantic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+
+
+    <body class="pushable">
+
+      <!-- Following Menu -->
+      <div class="ui large top fixed menu transition hidden">
+        <div class="ui container">
+          <a class="active item">Home</a>
+          <a class="item">Work</a>
+          <a class="item">Company</a>
+          <a class="item">Careers</a>
+          <div class="right menu">
+            <div class="item">
+              <a class="ui button">Log in</a>
+            </div>
+            <div class="item">
+              <a class="ui primary button">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- <div class="ui placeholder segment">
+      <div class="ui two column very relaxed stackable grid">
+        <div class="column">
+          <div class="ui form">
+            <div class="field">
+              <label>Username</label>
+              <div class="ui left icon input">
+                <input type="text" placeholder="Username">
+                <i class="user icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <div class="ui left icon input">
+                <input type="password">
+                <i class="lock icon"></i>
+              </div>
+            </div>
+            <div class="ui blue submit button">Login</div>
+          </div>
+        </div>
+        <div class="middle aligned column">
+          <div class="ui big button">
+            <i class="signup icon"></i>
+            Sign Up
+          </div>
+        </div>
+      </div>
+      <div class="ui vertical divider">
+        Or
+      </div>
+    </div> -->
+
+    <!-- 侧边栏功能 -->
+    <div class="ui sidebar inverted vertical menu" id="sideBar">
+      <a class="item"> 1 </a>
+      <a class="item"> 2 </a>
+      <a class="item"> 3 </a>
+    </div>
+    <div class="pusher">
+      <!-- Site content !-->
+      <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+          <div class="ui inverted medium secondary menu">
+            <a class="active item" onclick="$('#sideBar').sidebar('toggle')"> <i class="bars icon"></i></a>
+            <a class="item"> ACM class Ticket System </a>
+            <div class="right menu">
+              <div class="ui dropdown item" id="language">
+                Language <i class="dropdown icon"></i>
+                <div class="menu">
+                  <a class="item">English</a>
+                  <a class="item">Chinese</a>
+                  <a class="item">Russian</a>
+                  <a class="item">Spanish</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="ui primary button" onclick="$('#LogInForm').modal('show')">Sign In</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="ui text container">
+          <h1 class="ui inverted header">Imagine-a-Company</h1>
+          <h2>Do whatever you want when you want to.</h2>
+          <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+        </div>
+      </div>
+
+
+      <!-- <div class="ui inverted massive menu">
+        <a class="active item" onclick="$('#sideBar').sidebar('toggle')"> <i class="bars icon"></i></a>
+        <a class="item"> ACM class Ticket System </a>
+        <div class="right menu">
+          <div class="ui dropdown item" id="language">
+            Language <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item">English</a>
+              <a class="item">Chinese</a>
+              <a class="item">Russian</a>
+              <a class="item">Spanish</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui primary button" onclick="$('#LogInForm').modal('show')">Sign In</div> -->
+
+            <!-- <div class="ui active mini modal" id="LogInForm">
+              <form class="ui form segment">
+                <div class="two fields">
+                  <div class="field">
+                    <label>UserName</label>
+                    <input placeholder="userID" name="username" type="text" />
+                  </div>
+                  <div class="field">
+                    <label>Privilege</label>
+                    <div class="ui selection dropdown" id="privilege">
+                      <input name="privilege" type="hidden" />
+                      <div class="default text">Privilege</div>
+                      <i class="dropdown icon"></i>
+                      <div class="menu">
+                        <div class="item" data-value="0">0</div>
+                        <div class="item" data-value="1">1</div>
+                        <div class="item" data-value="2">2</div>
+                        <div class="item" data-value="3">3</div>
+                        <div class="item" data-value="4">4</div>
+                        <div class="item" data-value="5">5</div>
+                        <div class="item" data-value="6">6</div>
+                        <div class="item" data-value="7">7</div>
+                        <div class="item" data-value="8">8</div>
+                        <div class="item" data-value="9">9</div>
+                        <div class="item" data-value="10">10</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Name</label>
+                  <input placeholder="真实姓名，2 至 5 个汉字" name="name" type="text" />
+                </div>
+                <div class="field">
+                  <label>Password</label>
+                  <input placeholder="1~30个可见字符" name="password" type="password" />
+                </div>
+
+                <div class="field">
+                  <label>mailAddr</label>
+                  <input placeholder="仅含数字、大小写字母，@ 和 ." name="mailAddr" type="text" />
+                </div>
+
+                <div class="inline field">
+                  <div class="ui checkbox">
+                    <input name="terms" type="checkbox" />
+                    <label>I agree to the terms and conditions</label>
+                  </div>
+                </div>
+                <div class="ui primary submit button">Submit</div>
+                <div class="ui reset button" onclick="$('form').form('reset')">Reset</div>
+                <div class="ui clear button" onclick="$('form').form('clear') ">Clear</div>
+              </form>
+            </div> -->
+          <!-- </div>
+        </div> -->
+      </div>
+
+      <!-- <div class="ui horizontal statistics">
+        <div class="statistic">
+          <div class="value">2,204</div>
+          <div class="label">Views</div>
+        </div>
+        <div class="statistic">
+          <div class="value">3,322</div>
+          <div class="label">Downloads</div>
+        </div>
+        <div class="statistic">
+          <div class="value">22</div>
+          <div class="label">Tasks</div>
+        </div>
+      </div> -->
+
+      <!-- <div class="ui centered mini modal" id="LogInForm">
+        <form class="ui form segment">
+          <div class="two fields">
+            <div class="field">
+              <label>UserName</label>
+              <input placeholder="userID" name="username" type="text" />
+            </div>
+            <div class="field">
+              <label>Privilege</label>
+              <div class="ui selection dropdown" id="privilege">
+                <input name="privilege" type="hidden" />
+                <div class="default text">Privilege</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" data-value="0">0</div>
+                  <div class="item" data-value="1">1</div>
+                  <div class="item" data-value="2">2</div>
+                  <div class="item" data-value="3">3</div>
+                  <div class="item" data-value="4">4</div>
+                  <div class="item" data-value="5">5</div>
+                  <div class="item" data-value="6">6</div>
+                  <div class="item" data-value="7">7</div>
+                  <div class="item" data-value="8">8</div>
+                  <div class="item" data-value="9">9</div>
+                  <div class="item" data-value="10">10</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="真实姓名，2 至 5 个汉字" name="name" type="text" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input placeholder="1~30个可见字符" name="password" type="password" />
+          </div>
+
+          <div class="field">
+            <label>mailAddr</label>
+            <input placeholder="仅含数字、大小写字母，@ 和 ." name="mailAddr" type="text" />
+          </div>
+
+          <div class="inline field">
+            <div class="ui checkbox">
+              <input name="terms" type="checkbox" />
+              <label>I agree to the terms and conditions</label>
+            </div>
+          </div>
+          <div class="ui primary submit button">Submit</div> -->
+      <!-- <div class="ui reset button" onclick="$('form').form('reset')">Reset</div> -->
+      <!-- <div class="ui clear button" onclick="$('form').form('clear') ">Clear</div>
+        </form>
+      </div> -->
+
+      <!-- <div class="ui middle aligned center aligned grid">
+        <div class="column">
+          <h2 class="ui teal image header">
+            <img src="assets/images/logo.png" class="image">
+            <div class="content">
+              Log-in to your account
+            </div>
+          </h2>
+          <form class="ui large form">
+            <div class="ui stacked segment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon"></i>
+                  <input type="text" name="email" placeholder="E-mail address">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon"></i>
+                  <input type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="ui fluid large teal submit button">Login</div>
+            </div>
+      
+            <div class="ui error message"></div>
+      
+          </form>
+      
+          <div class="ui message">
+            New to us? <a href="#">Sign Up</a>
+          </div>
+        </div>
+      </div> -->
+
+
+      <div class="ui vertical stripe segment">
+         <div class="ui middle aligned stackable grid container">
+          <!-- <div class="row">
+            <div class="eight wide column">
+              <h3 class="ui header">We Help Companies and Companions</h3>
+              <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+              <h3 class="ui header">We Make Bananas That Can Dance</h3>
+              <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+            </div>
+            <div class="six wide right floated column">
+              <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+            </div>
+          </div>
+          <div class="row">
+            <div class="center aligned column">
+              <a class="ui huge button">Check Them Out</a>
+            </div>
+          </div> -->
+
+            <a href="https://whvn.cc/g8dxld" class="ui rounded bordered image">
+            <!-- <image xlink:href="../static/images/front_train1.png" x="0" y="0" width="100%" height="100%"></image> -->
+            <img src="../static/images/front_train1.png">
+            </a>
+          </div>
+        </div>
+
+       
+
+      </div>
+
+      <!-- <a href="https://whvn.cc/g8dxld" class="ui centered fluid rounded bordered image">
+          <image xlink:href="../static/images/front_train1.png" x="0" y="0" width="100%" height="100%"></image>
+          <img src="../static/images/front_train1.png">
+      </a> -->
+
+      <!-- <img class="ui centered huge rounded bordered image" src="../static/images/front_train1.png"> -->
+    </div>
+
+    <!-- <div class="ui left demo vertical inverted sidebar labeled icon menu">
+      <a class="item">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item">
+        <i class="block layout icon"></i>
+        Topics
+      </a>
+      <a class="item">
+        <i class="smile icon"></i>
+        Friends
+      </a>
+    </div> -->
+
+    <script type="text/javascript" src="../static/js/app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <div class="ui checkbox">
+                  <input name="terms" type="checkbox" />
+                  <label>I agree to the terms and conditions</label>
+                </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="ui vertical stripe segment"> -->
+        <!-- <div class="ui middle aligned stackable grid container">
+        <div class="row">
+          <div class="eight wide column">
+            <h3 class="ui header">We Help Companies and Companions</h3>
+            <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+            <h3 class="ui header">We Make Bananas That Can Dance</h3>
+            <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+          </div>
+          <div class="six wide right floated column">
+            <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+          </div>
+        </div>
+        <div class="row">
+          <div class="center aligned column">
+            <a class="ui huge button">Check Them Out</a>
+          </div>
+        </div>
+      </div> -->
+
+        <!-- <div class="ui cards">
+          <div class="card">
+            <div class="image">
+              <img src="/images/avatar2/large/matthew.png" />
+            </div>
+            <div class="content">
+              <div class="header">Vexoben</div>
+              <div class="meta">
+                <a>Constructor</a>
+              </div>
+              <div class="description">Matthew is an interior designer living in New York.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="image">
+              <img src="/images/avatar2/large/molly.png" />
+            </div>
+            <div class="content">
+              <div class="header">JerryGJX</div>
+              <div class="meta">
+                <span class="date">Constructor</span>
+              </div>
+              <div class="description">Molly is a personal assistant living in Paris.</div>
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="column">
+            <div class="ui fluid card">
+              <div class="image">
+                <img src="/images/avatar/large/elliot.jpg">
+              </div>
+              <div class="content">
+                <a class="header">Elliot Fu</a>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+
+<!-- <div class="ui vertical stripe quote segment">
+      <div class="ui equal width stackable internally celled grid">
+        <div class="center aligned row">
+          <div class="column">
+            <h3>"What a Company"</h3>
+            <p>That is what they all say about us</p>
+          </div>
+          <div class="column">
+            <h3>"I shouldn't have gone with their competitor."</h3>
+            <p>
+              <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+                <div class="ui vertical stripe segment">
+                  <div class="ui text container">
+                    <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
+                    <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
+                    <a class="ui large button">Read More</a>
+                    <h4 class="ui horizontal header divider">
+                      <a href="#">Case Studies</a>
+                    </h4>
+                    <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+                    <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+                    <a class="ui large button">I'm Still Quite Interested</a>
+                  </div>
+                </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+                <img class="ui centered small circular image" src="../static/images/default_image.jpg">
+      <a class="item" href="presonal_profile.html"> 1. 个人信息 </a>
+      <a class="item"> 2. 添加新用户 </a>
+      <a class="item"> 3. 修改用户信息 </a>
+      <a class="item"> 4. 退出登录 </a>
