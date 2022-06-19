@@ -68,6 +68,8 @@ def personal_profile():
 @app.route('/modify_user', methods = ['POST', 'GET'])
 def modify_user():
     user_info = request.form.to_dict()
+    if (not('current_user' in user_info.keys() and user_info['current_user'] != '')):
+        return render_template('./register.html')
     if ('username' in user_info.keys() and user_info['username'] != ''):
         current_user = user_info['current_user']
         username = user_info['username']
@@ -90,8 +92,6 @@ def modify_user():
                 return render_template('./modify_user.html', fail_type = 1)
             else :
                 return render_template('./modify_user.html', fail_type = 0, current_user = current_user)
-    elif ('current_user' in user_info.keys() and user_info['current_user'] != ''):
-        return render_template('./modify_user.html', current_user = user_info['current_user'], fail_type = 2)
     else:
         return render_template('./modify_user.html', current_user = '', fail_type = 2)
 
@@ -99,6 +99,8 @@ def modify_user():
 def add_user():
     user_info = request.form.to_dict()
     print(user_info)
+    if (not('current_user' in user_info.keys() and user_info['current_user'] != '')):
+        return render_template('./register.html')
     if ('username' in user_info.keys() and user_info['username'] != ''):
         current_user = user_info['current_user']
         username = user_info['username']
@@ -133,7 +135,7 @@ def add_user():
 
 @app.route('/user', methods = ['POST', 'GET'])
 def user():
-    return render_template("./user.html")
+    return render_template("./user.html")      
 
 
 if __name__ == '__main__':
