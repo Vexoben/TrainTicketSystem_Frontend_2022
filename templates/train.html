@@ -162,7 +162,7 @@
          <br />
         <div class="ui medium text container">
           <div class="four ui centered stackable buttons">
-            <button class="ui huge primary teal centered button">add train</button>
+            <button class="ui huge primary teal centered button" onclick="javascript:_add_train_()">add train</button>
             <button class="ui huge primary teal centered button">delete train</button>
             <button class="ui huge primary teal centered button">release train</button>
             <button class="ui huge primary teal centered button">query train</button>
@@ -220,5 +220,17 @@
       </div>
     </div>
     <script type="text/javascript" src="../static/js/app_for_train.js"></script>
+    <script>
+      function _add_train_() {
+        var f = document.createElement('form');
+        f.style.display = 'none';
+        f.action = '/add_train';
+        f.method='post';
+        f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}>';
+        document.body.appendChild(f);
+        f.submit();
+      }
+    </script>
+
   </body>
 </html>

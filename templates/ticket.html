@@ -159,9 +159,9 @@
         <br />
         <div class="ui medium text container">
           <div class="three ui centered vertical buttons">
-            <button class="ui huge primary teal centered button" onclick="window.open('query_ticket.html')">query ticket</button>
-            <button class="ui huge primary teal centered button" onclick="window.open('buy_ticket.html')">buy ticket</button>
-            <button class="ui huge primary teal centered button" onclick="window.open('refund_ticket.html')">refund ticket</button>
+            <button class="ui huge primary teal centered button" onclick="javascript:_query_ticket_()"> query ticket</button>
+            <button class="ui huge primary teal centered button" onclick="javascript:_buy_ticket_()">buy ticket</button>
+            <button class="ui huge primary teal centered button" onclick="javascript:_refund_ticket_()"> refund ticket </button>
           </div>
         </div>
         <!-- <div class="ui centered small circular modal" id="LogInForm">
@@ -216,5 +216,36 @@
       </div>
     </div>
     <script type="text/javascript" src="../static/js/app_for_ticket.js"></script>
+    <script>
+    function _query_ticket_() {
+      var f = document.createElement('form');
+      f.style.display = 'none';
+      f.action = '/query_ticket';
+      f.method='post';
+      f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}> <input type="hidden" name="query_user" value={{current_user}}>';
+      document.body.appendChild(f);
+      f.submit();
+    }
+    function _buy_ticket_() {
+      var f = document.createElement('form');
+      f.style.display = 'none';
+      f.action = '/buy_ticket';
+      f.method='post';
+      f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}> <input type="hidden" name="query_user" value={{current_user}}>';
+      document.body.appendChild(f);
+      f.submit();
+    }
+    function _refund_ticket_() {
+      var f = document.createElement('form');
+      f.style.display = 'none';
+      f.action = '/refund_ticket';
+      f.method='post';
+      f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}> <input type="hidden" name="query_user" value={{current_user}}>';
+      document.body.appendChild(f);
+      f.submit();
+    }
+    </script>
+
+
   </body>
 </html>

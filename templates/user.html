@@ -118,7 +118,7 @@
         <div class="ui container">
           <div class="ui huge fixed menu">
             <a class="active item" onclick="$('#sideBar').sidebar('toggle')"> <i class="bars icon"></i></a>
-            <a class="item" href="front.html"> ACM class Ticket System </a>
+            <a class="item" href="javascript:_direct_to_user_()"> ACM class Ticket System </a>
             <div class="right menu">
               <div class="ui dropdown item" id="language">
                 Language <i class="dropdown icon"></i>
@@ -153,8 +153,8 @@
         <div class="ui text container">
           <div class="four ui centered stackable buttons">
             <button class="ui huge primary centered button">All my orders</button>
-            <button class="ui huge primary centered button" onclick="window.open('train.html')">About trains</button>
-            <button class="ui huge primary centered button" onclick="window.open('ticket.html')">About tickets</button>
+            <button class="ui huge primary centered button" onclick="javascript:_train_()">About trains</button>
+            <button class="ui huge primary centered button" onclick="javascript:_ticket_()">About tickets</button>
           </div>
         </div>
         <!-- <div class="ui centered small circular modal" id="LogInForm">
@@ -211,6 +211,16 @@
     <script type="text/javascript" src="../static/js/app_for_user.js"></script>
 
     <script>
+      function _direct_to_user_() {
+        var f = document.createElement('form');
+        f.style.display = 'none';
+        f.action = '/';
+        f.method='post';
+        f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}>';
+        document.body.appendChild(f);
+        f.submit();
+      }
+
       function _personal_profile_() {
         var f = document.createElement('form');
         f.style.display = 'none';
@@ -240,6 +250,27 @@
         document.body.appendChild(f);
         f.submit();
       }
+
+      function _train_() {
+        var f = document.createElement('form');
+        f.style.display = 'none';
+        f.action = '/train';
+        f.method='post';
+        f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}>';
+        document.body.appendChild(f);
+        f.submit();
+      }
+
+      function _ticket_() {
+        var f = document.createElement('form');
+        f.style.display = 'none';
+        f.action = '/ticket';
+        f.method='post';
+        f.innerHTML='<input type="hidden" name="current_user" value={{current_user}}>';
+        document.body.appendChild(f);
+        f.submit();
+      }
+
 
     </script>
 
